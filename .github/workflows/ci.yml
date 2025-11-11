@@ -9,9 +9,11 @@ jobs:
         with: { distribution: temurin, java-version: '17' }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: python -m pip install --upgrade pip
-      - run: pip install robotframework allure-robotframework
       - run: python -m venv .venv
+      - run: .\.venv\Scripts\python.exe -m pip install --upgrade pip
+        shell: cmd
+      - run: .\.venv\Scripts\pip.exe install robotframework allure-robotframework
+        shell: cmd
       - run: mvn -q -DskipTests install
       - run: start /B cmd /C start-server.bat
         shell: cmd
