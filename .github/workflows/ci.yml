@@ -22,6 +22,9 @@ jobs:
       - run: .venv\Scripts\robot.exe --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/run_feature_tests.robot
         shell: cmd
         continue-on-error: true
+      - run: .venv\Scripts\robot.exe --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/bond_trading_tests.robot
+        shell: cmd
+        continue-on-error: true
       - run: type tests-robot\logs\output.xml
         shell: cmd
         continue-on-error: true

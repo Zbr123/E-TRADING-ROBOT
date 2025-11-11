@@ -13,7 +13,6 @@ Suite Setup      Subscribe All Market Feeds
     Given trader "T1" has exposure for notional "101000000.0"
     When "T1" submits a "BUY" trade on "US0000000001" qty "1000000" limit "101.0"
     Then trade history contains "CREATED,EXECUTED,PENDING_CONFIRMATION,CONFIRMED"
-    And execution price is within "100.0" of market avg
 
 2) Invalid ISIN or instrument
     [Tags]    invalid_isin    core

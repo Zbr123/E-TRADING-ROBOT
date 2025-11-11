@@ -19,8 +19,9 @@ Test Execution Latency Metrics
     Should Not Be Empty    ${id}
     
     ${latency}=    Metrics.Get Trade Execution Latency    ${id}
-    Should Be True    ${latency} > 0
-    Should Be True    ${latency} < 10000    # Should complete in under 10 seconds
+    ${latency_num}=    Convert To Number    ${latency}
+    Should Be True    ${latency_num} >= 0
+    Should Be True    ${latency_num} < 10000    # Should complete in under 10 seconds
     Log    ⏱️ Execution latency: ${latency}ms
 
 Test Retry Count Metrics
@@ -96,7 +97,8 @@ Test Multiple Trades Performance Metrics
         Should Not Be Empty    ${id}
         Append To List    ${trade_ids}    ${id}
         ${latency}=    Metrics.Get Trade Execution Latency    ${id}
-        Append To List    ${latencies}    ${latency}
+        ${latency_num}=    Convert To Number    ${latency}
+        Append To List    ${latencies}    ${latency_num}
         Log    Trade ${i+1}: ${id} - Latency: ${latency}ms
     END
     

@@ -10,6 +10,9 @@ Setup Market Data From CSV
     @{lines}=    Split To Lines    ${csv_content}
     Remove From List    ${lines}    0    # Remove header
     FOR    ${line}    IN    @{lines}
+        # Skip empty lines
+        ${line_stripped}=    Strip String    ${line}
+        Continue For Loop If    '${line_stripped}' == ''
         @{fields}=    Split String    ${line}    ,
         ${isin}=    Set Variable    ${fields}[0]
         ${mid}=    Set Variable    ${fields}[3]
@@ -60,6 +63,9 @@ Data Driven Tests From CSV
     
     ${test_count}=    Set Variable    ${0}
     FOR    ${line}    IN    @{lines}
+        # Skip empty lines
+        ${line_stripped}=    Strip String    ${line}
+        Continue For Loop If    '${line_stripped}' == ''
         ${test_count}=    Evaluate    ${test_count} + 1
         ${trader}    ${isin}    ${side}    ${qty}    ${limit}    ${expected}    ${desc}=
         ...    Parse CSV Trade Row    ${line}
