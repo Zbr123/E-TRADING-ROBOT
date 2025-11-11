@@ -12,12 +12,14 @@ jobs:
       - run: python -m venv .venv
       - run: .\.venv\Scripts\python.exe -m pip install --upgrade pip
         shell: cmd
-      - run: .\.venv\Scripts\pip.exe install robotframework allure-robotframework
+      - run: .\.venv\Scripts\pip.exe install robotframework allure-robotframework robotremoteserver
         shell: cmd
       - run: mvn -q -DskipTests install
       - run: start /B cmd /C start-server.bat
         shell: cmd
       - run: ping 127.0.0.1 -n 8 > nul
+        shell: cmd
+      - run: netstat -ano | findstr "8270"
         shell: cmd
       - run: .\.venv\Scripts\robot.exe --listener allure_robotframework;outdir=tests-robot/logs/allure-results --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/run_feature_tests.robot
         shell: cmd
