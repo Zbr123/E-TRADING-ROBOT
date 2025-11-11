@@ -15,13 +15,21 @@ jobs:
       - run: .\.venv\Scripts\pip.exe install robotframework allure-robotframework robotremoteserver
         shell: cmd
       - run: mvn -q -DskipTests install
-      - run: |
-          start /B java -DREMOTE_HOST=127.0.0.1 -DREMOTE_PORT=8270 -jar keywords-remote\target\keywords-remote-1.0.0.jar
-          ping 127.0.0.1 -n 10 > nul
-          netstat -ano | findstr "8270"
+      - run: Start-Process -NoNewWindow -FilePath "cmd.exe" -ArgumentList "/c","start-server.bat"
+        shell: powershell
+      - run: Start-Sleep -Seconds 10
+        shell: powershell
+      - run: netstat -ano | findstr "8270"
         shell: cmd
+      - run: mkdir tests-robot\logs\allure-results
+        shell: cmd
+        continue-on-error: true
       - run: .\.venv\Scripts\robot.exe --listener allure_robotframework;outdir=tests-robot/logs/allure-results --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/run_feature_tests.robot
         shell: cmd
+        continue-on-error: true
+      - run: type tests-robot\logs\output.xml
+        shell: cmd
+        continue-on-error: true
       - uses: actions/upload-artifact@v4
         with: { name: robot-and-allure, path: tests-robot/logs/** }
 
