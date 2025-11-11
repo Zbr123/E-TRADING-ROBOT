@@ -1,0 +1,6 @@
+package com.example.trading.enums;
+
+public enum TradeState {
+  CREATED, EXECUTED, PARTIALLY_FILLED, PENDING_CONFIRMATION, RETRY, CONFIRMED, REJECTED, CANCELLED
+}
+

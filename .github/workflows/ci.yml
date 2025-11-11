@@ -1,0 +1,24 @@
+name: trading-bdd
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: python -m pip install --upgrade pip
+      - run: pip install robotframework allure-robotframework
+      - run: python -m venv .venv
+      - run: mvn -q -DskipTests install
+      - run: start /B cmd /C start-server.bat
+        shell: cmd
+      - run: timeout /t 7 /nobreak
+        shell: cmd
+      - run: .\.venv\Scripts\robot.exe --listener allure_robotframework;outdir=tests-robot/logs/allure-results --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/run_feature_tests.robot
+        shell: cmd
+      - uses: actions/upload-artifact@v4
+        with: { name: robot-and-allure, path: tests-robot/logs/** }
+

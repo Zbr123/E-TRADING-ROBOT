@@ -1,0 +1,12 @@
+com\example\trading\model\Trade.class
+com\example\trading\service\TradeService.class
+com\example\trading\model\Trader.class
+com\example\trading\service\InstrumentService.class
+com\example\trading\util\Backoff.class
+com\example\trading\enums\TradeState.class
+com\example\trading\model\FIXMessage.class
+com\example\trading\model\TradeMetrics.class
+com\example\trading\service\CreditService.class
+com\example\trading\service\MarketDataService.class
+com\example\trading\model\Instrument.class
+com\example\trading\enums\Side.class
