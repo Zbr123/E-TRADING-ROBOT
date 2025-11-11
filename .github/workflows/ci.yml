@@ -19,8 +19,6 @@ jobs:
         shell: powershell
       - run: Start-Sleep -Seconds 10
         shell: powershell
-      - run: netstat -ano | findstr "8270"
-        shell: cmd
       - run: mkdir tests-robot\logs\allure-results
         shell: cmd
         continue-on-error: true
