@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-11-11T20:02:58.007334" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-11-11T20:05:31.449527" rpa="false" schemaversion="5">
 <suite id="s1" name="Run Feature Tests" source="C:\Users\zubai\OneDrive\Desktop\E-Trading-robot\tests-robot\run_feature_tests.robot">
 <kw name="Subscribe All Market Feeds" owner="trading_bdd" type="SETUP">
 <kw name="Subscribe To Market Feed" owner="Trading">
 <arg>US0000000001</arg>
 <arg>100.5</arg>
-<status status="PASS" start="2025-11-11T20:02:58.343280" elapsed="0.004368"/>
+<status status="PASS" start="2025-11-11T20:05:31.674277" elapsed="0.002022"/>
 </kw>
 <kw name="Subscribe To Market Feed" owner="Trading">
 <arg>US0000000002</arg>
 <arg>99.8</arg>
-<status status="PASS" start="2025-11-11T20:02:58.347648" elapsed="0.005731"/>
+<status status="PASS" start="2025-11-11T20:05:31.676299" elapsed="0.004297"/>
 </kw>
 <kw name="Subscribe To Market Feed" owner="Trading">
 <arg>GB0000000003</arg>
 <arg>100.2</arg>
-<status status="PASS" start="2025-11-11T20:02:58.353379" elapsed="0.004040"/>
+<status status="PASS" start="2025-11-11T20:05:31.680596" elapsed="0.004468"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.343280" elapsed="0.014139"/>
+<status status="PASS" start="2025-11-11T20:05:31.672246" elapsed="0.012818"/>
 </kw>
 <test id="s1-t1" name="1) Create and confirm valid trade" line="6">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;101000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.360939" level="INFO">${notional_float} = 101000000.0</msg>
+<msg time="2025-11-11T20:05:31.689334" level="INFO">${notional_float} = 101000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.360939" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.689334" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.360939" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.689334" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.360939" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.689334" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.366287" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.689334" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.360939" elapsed="0.005348"/>
+<status status="PASS" start="2025-11-11T20:05:31.689334" elapsed="0.007732"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.368312" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.697406" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.360939" elapsed="0.007373"/>
+<status status="PASS" start="2025-11-11T20:05:31.689334" elapsed="0.008072"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000001&quot; qty &quot;1000000&quot; limit &quot;101.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.371184" level="INFO">${qty_int} = 1000000</msg>
+<msg time="2025-11-11T20:05:31.700138" level="INFO">${qty_int} = 1000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.697406" elapsed="0.002732"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.371184" level="INFO">${price_float} = 101.0</msg>
+<msg time="2025-11-11T20:05:31.700138" level="INFO">${price_float} = 101.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.700138" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.371184" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.700138" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.700138" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.379211" level="INFO">${id} = ec64833b-aa6e-4247-8e01-0b21dd9f6b80</msg>
+<msg time="2025-11-11T20:05:31.704166" level="INFO">${id} = 3906d63e-9e69-4218-9c80-c4c9ebc8c883</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -84,16 +84,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.008027"/>
+<status status="PASS" start="2025-11-11T20:05:31.700138" elapsed="0.004028"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.379211" level="INFO">${TRADE_ID} = ec64833b-aa6e-4247-8e01-0b21dd9f6b80</msg>
+<msg time="2025-11-11T20:05:31.705177" level="INFO">${TRADE_ID} = 3906d63e-9e69-4218-9c80-c4c9ebc8c883</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.379211" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.705177" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.008027"/>
+<status status="PASS" start="2025-11-11T20:05:31.700138" elapsed="0.005039"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -101,13 +101,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.379211" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.705177" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.379211" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.705177" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.371184" elapsed="0.008027"/>
+<status status="PASS" start="2025-11-11T20:05:31.700138" elapsed="0.005039"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.368312" elapsed="0.010899"/>
+<status status="PASS" start="2025-11-11T20:05:31.697406" elapsed="0.007771"/>
 </kw>
 <kw name="Then trade history contains &quot;CREATED,EXECUTED,PENDING_CONFIRMATION,CONFIRMED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -115,110 +115,67 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.385000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.708978" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.385000" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.708978" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.382305" elapsed="0.002695"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.705177" elapsed="0.003801"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.382305" elapsed="0.002695"/>
+<status status="PASS" start="2025-11-11T20:05:31.705177" elapsed="0.003801"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.391051" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.713308" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.385000" elapsed="0.006051"/>
+<status status="PASS" start="2025-11-11T20:05:31.708978" elapsed="0.004330"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.391051" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.713308" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.391051" level="INFO">Trade ec64833b-aa6e-4247-8e01-0b21dd9f6b80 contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.713308" level="INFO">Trade 3906d63e-9e69-4218-9c80-c4c9ebc8c883 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.391051" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.713308" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.382305" elapsed="0.008746"/>
-</kw>
-<kw name="And execution price is within &quot;100.0&quot; of market avg" owner="trading_bdd" source_name="execution price is within &quot;${abs_diff}&quot; of market avg">
-<if>
-<branch type="IF" condition="&quot;${TRADE_ID}&quot; == &quot;INVALID&quot; or &quot;${TRADE_ID}&quot; == &quot;${EMPTY}&quot;">
-<kw name="Log" owner="BuiltIn">
-<arg>Skipping price check for invalid/empty trade</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.393069" elapsed="0.000000"/>
-</kw>
-<return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.393069" elapsed="0.000000"/>
-</return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.393069" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-11-11T20:02:58.393069" elapsed="0.000000"/>
-</if>
-<kw name="Compare Execution Price To Market Average" owner="Trading">
-<msg time="2025-11-11T20:02:58.397107" level="INFO">${d} = -111.57109881909835</msg>
-<var>${d}</var>
-<arg>${TRADE_ID}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.393069" elapsed="0.004038"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.399116" level="INFO">${abs} = 111.57109881909835</msg>
-<var>${abs}</var>
-<arg>abs(${d})</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.397107" elapsed="0.002009"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.399116" level="INFO">${limit} = 100.0</msg>
-<var>${limit}</var>
-<arg>float("${abs_diff}")</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.399116" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.399116" level="FAIL">'111.57109881909835 &lt; 100.0' should be true.</msg>
-<arg>${abs} &lt; ${limit}</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2025-11-11T20:02:58.399116" elapsed="0.000000">'111.57109881909835 &lt; 100.0' should be true.</status>
-</kw>
-<status status="FAIL" start="2025-11-11T20:02:58.393069" elapsed="0.006047">'111.57109881909835 &lt; 100.0' should be true.</status>
+<status status="PASS" start="2025-11-11T20:05:31.705177" elapsed="0.008131"/>
 </kw>
 <tag>valid</tag>
-<status status="FAIL" start="2025-11-11T20:02:58.357419" elapsed="0.041697">'111.57109881909835 &lt; 100.0' should be true.</status>
+<status status="PASS" start="2025-11-11T20:05:31.685064" elapsed="0.028244"/>
 </test>
-<test id="s1-t2" name="2) Invalid ISIN or instrument" line="13">
+<test id="s1-t2" name="2) Invalid ISIN or instrument" line="12">
 <try>
 <branch type="TRY">
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;BADISIN123456&quot; qty &quot;100000&quot; limit &quot;100.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.407518" level="INFO">${qty_int} = 100000</msg>
+<msg time="2025-11-11T20:05:31.713308" level="INFO">${qty_int} = 100000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.407518" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.713308" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.407518" level="INFO">${price_float} = 100.0</msg>
+<msg time="2025-11-11T20:05:31.721357" level="INFO">${price_float} = 100.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.407518" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.721357" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.407518" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.721357" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.407518" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.721357" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.413569" level="FAIL">Invalid ISIN</msg>
+<msg time="2025-11-11T20:05:31.731661" level="FAIL">Invalid ISIN</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -227,15 +184,15 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="FAIL" start="2025-11-11T20:02:58.409531" elapsed="0.004038">Invalid ISIN</status>
+<status status="FAIL" start="2025-11-11T20:05:31.721357" elapsed="0.010304">Invalid ISIN</status>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.415591" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.731661" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-11-11T20:02:58.407518" elapsed="0.008073">Invalid ISIN</status>
+<status status="FAIL" start="2025-11-11T20:05:31.721357" elapsed="0.010304">Invalid ISIN</status>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -243,87 +200,87 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.415591" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.733624" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.415591" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.731661" elapsed="0.001963"/>
 </branch>
-<status status="FAIL" start="2025-11-11T20:02:58.407518" elapsed="0.008073">Invalid ISIN</status>
+<status status="FAIL" start="2025-11-11T20:05:31.721357" elapsed="0.012267">Invalid ISIN</status>
 </try>
-<status status="FAIL" start="2025-11-11T20:02:58.405502" elapsed="0.010089">Invalid ISIN</status>
+<status status="FAIL" start="2025-11-11T20:05:31.713308" elapsed="0.020316">Invalid ISIN</status>
 </kw>
-<status status="FAIL" start="2025-11-11T20:02:58.405502" elapsed="0.010089">Invalid ISIN</status>
+<status status="FAIL" start="2025-11-11T20:05:31.713308" elapsed="0.020316">Invalid ISIN</status>
 </branch>
 <branch type="EXCEPT">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.415591" level="INFO">Invalid ISIN correctly rejected</msg>
+<msg time="2025-11-11T20:05:31.734138" level="INFO">Invalid ISIN correctly rejected</msg>
 <arg>Invalid ISIN correctly rejected</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.415591" elapsed="0.002016"/>
+<status status="PASS" start="2025-11-11T20:05:31.734138" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.415591" elapsed="0.002016"/>
+<status status="PASS" start="2025-11-11T20:05:31.734138" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.405502" elapsed="0.012105"/>
+<status status="PASS" start="2025-11-11T20:05:31.713308" elapsed="0.020830"/>
 </try>
 <tag>invalid_isin</tag>
-<status status="PASS" start="2025-11-11T20:02:58.403429" elapsed="0.014178"/>
+<status status="PASS" start="2025-11-11T20:05:31.713308" elapsed="0.020830"/>
 </test>
-<test id="s1-t3" name="3) Price deviation &gt; market tolerance" line="21">
+<test id="s1-t3" name="3) Price deviation &gt; market tolerance" line="20">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;100000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.423800" level="INFO">${notional_float} = 100000000.0</msg>
+<msg time="2025-11-11T20:05:31.737909" level="INFO">${notional_float} = 100000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.423800" elapsed="0.002014"/>
+<status status="PASS" start="2025-11-11T20:05:31.737909" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.425814" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.737909" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.425814" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.737909" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.429850" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.737909" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.425814" elapsed="0.004036"/>
+<status status="PASS" start="2025-11-11T20:05:31.737909" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.429850" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.745963" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.423800" elapsed="0.006050"/>
+<status status="PASS" start="2025-11-11T20:05:31.736153" elapsed="0.009810"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000002&quot; qty &quot;1000000&quot; limit &quot;10.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.429850" level="INFO">${qty_int} = 1000000</msg>
+<msg time="2025-11-11T20:05:31.749856" level="INFO">${qty_int} = 1000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.429850" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.747619" elapsed="0.002237"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.429850" level="INFO">${price_float} = 10.0</msg>
+<msg time="2025-11-11T20:05:31.749856" level="INFO">${price_float} = 10.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.429850" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.749856" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.434553" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.749856" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.434553" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.749856" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.442429" level="INFO">${id} = d45ea600-def2-4f67-a247-0c89a44cbccd</msg>
+<msg time="2025-11-11T20:05:31.755895" level="INFO">${id} = 33b299ca-8597-4b77-bffc-2edef1d40608</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -332,16 +289,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.434553" elapsed="0.007876"/>
+<status status="PASS" start="2025-11-11T20:05:31.749856" elapsed="0.006039"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.444448" level="INFO">${TRADE_ID} = d45ea600-def2-4f67-a247-0c89a44cbccd</msg>
+<msg time="2025-11-11T20:05:31.757855" level="INFO">${TRADE_ID} = 33b299ca-8597-4b77-bffc-2edef1d40608</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.442429" elapsed="0.002019"/>
+<status status="PASS" start="2025-11-11T20:05:31.757855" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.434553" elapsed="0.009895"/>
+<status status="PASS" start="2025-11-11T20:05:31.749856" elapsed="0.007999"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -349,13 +306,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.757855" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.757855" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.434553" elapsed="0.009895"/>
+<status status="PASS" start="2025-11-11T20:05:31.749856" elapsed="0.007999"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.429850" elapsed="0.014598"/>
+<status status="PASS" start="2025-11-11T20:05:31.747619" elapsed="0.010236"/>
 </kw>
 <kw name="Then trade history contains &quot;REJECTED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -363,95 +320,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.444448" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.447325" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.762307" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.444448" elapsed="0.002877"/>
+<status status="PASS" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.447325" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.447325" level="INFO">Trade d45ea600-def2-4f67-a247-0c89a44cbccd contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.762307" level="INFO">Trade 33b299ca-8597-4b77-bffc-2edef1d40608 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.447325" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.762307" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.444448" elapsed="0.002877"/>
+<status status="PASS" start="2025-11-11T20:05:31.757855" elapsed="0.004452"/>
 </kw>
 <tag>price_deviation</tag>
-<status status="PASS" start="2025-11-11T20:02:58.421758" elapsed="0.025567"/>
+<status status="PASS" start="2025-11-11T20:05:31.736153" elapsed="0.026154"/>
 </test>
-<test id="s1-t4" name="4) Execute already confirmed trade" line="27">
+<test id="s1-t4" name="4) Execute already confirmed trade" line="26">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;101000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.454593" level="INFO">${notional_float} = 101000000.0</msg>
+<msg time="2025-11-11T20:05:31.771135" level="INFO">${notional_float} = 101000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.454593" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.771135" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.454593" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.771135" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.454593" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.771135" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.460908" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.778797" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.454593" elapsed="0.006315"/>
+<status status="PASS" start="2025-11-11T20:05:31.771135" elapsed="0.007662"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.454593" elapsed="0.006315"/>
+<status status="PASS" start="2025-11-11T20:05:31.771135" elapsed="0.007662"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000001&quot; qty &quot;1000000&quot; limit &quot;101.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.460908" level="INFO">${qty_int} = 1000000</msg>
+<msg time="2025-11-11T20:05:31.778797" level="INFO">${qty_int} = 1000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.460908" level="INFO">${price_float} = 101.0</msg>
+<msg time="2025-11-11T20:05:31.778797" level="INFO">${price_float} = 101.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.460908" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.778797" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.469030" level="INFO">${id} = 683888c3-7f7b-4d20-aef7-fc8bbb65eec9</msg>
+<msg time="2025-11-11T20:05:31.787316" level="INFO">${id} = abe3bd63-b5cc-44c0-ba9c-d274614aa17e</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -460,16 +417,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.465677" elapsed="0.003353"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.008519"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.472192" level="INFO">${TRADE_ID} = 683888c3-7f7b-4d20-aef7-fc8bbb65eec9</msg>
+<msg time="2025-11-11T20:05:31.795309" level="INFO">${TRADE_ID} = abe3bd63-b5cc-44c0-ba9c-d274614aa17e</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.795309" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.011284"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.016512"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -477,13 +434,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.796595" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.795309" elapsed="0.001286"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.011284"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.017798"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.460908" elapsed="0.011284"/>
+<status status="PASS" start="2025-11-11T20:05:31.778797" elapsed="0.017798"/>
 </kw>
 <kw name="Then trade history contains &quot;CONFIRMED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -491,95 +448,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.797610" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.797610" elapsed="0.001634"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.797610" elapsed="0.001634"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.472192" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.797610" elapsed="0.001634"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.479460" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.803639" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.472192" elapsed="0.007268"/>
+<status status="PASS" start="2025-11-11T20:05:31.799244" elapsed="0.004395"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.479460" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.803639" elapsed="0.001096"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.479460" level="INFO">Trade 683888c3-7f7b-4d20-aef7-fc8bbb65eec9 contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.804735" level="INFO">Trade abe3bd63-b5cc-44c0-ba9c-d274614aa17e contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.479460" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.804735" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.472192" elapsed="0.007268"/>
+<status status="PASS" start="2025-11-11T20:05:31.797610" elapsed="0.007125"/>
 </kw>
 <tag>double_exec</tag>
-<status status="PASS" start="2025-11-11T20:02:58.452480" elapsed="0.026980"/>
+<status status="PASS" start="2025-11-11T20:05:31.770743" elapsed="0.035091"/>
 </test>
-<test id="s1-t5" name="5) Simulate random system failure causes retry" line="33">
+<test id="s1-t5" name="5) Simulate random system failure causes retry" line="32">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;101000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.479460" level="INFO">${notional_float} = 101000000.0</msg>
+<msg time="2025-11-11T20:05:31.811865" level="INFO">${notional_float} = 101000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.479460" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.805834" elapsed="0.006031"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.485263" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.811865" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.485263" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.811865" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.485263" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.811865" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.485263" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.811865" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.485263" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.811865" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.479460" elapsed="0.005803"/>
+<status status="PASS" start="2025-11-11T20:05:31.805834" elapsed="0.006031"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;SELL&quot; trade on &quot;US0000000002&quot; qty &quot;800000&quot; limit &quot;99.9&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.493362" level="INFO">${qty_int} = 800000</msg>
+<msg time="2025-11-11T20:05:31.820919" level="INFO">${qty_int} = 800000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.820372" elapsed="0.000547"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.493362" level="INFO">${price_float} = 99.9</msg>
+<msg time="2025-11-11T20:05:31.820919" level="INFO">${price_float} = 99.9</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.820919" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.493362" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.820919" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.820919" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.493362" level="INFO">${id} = 7bd2b859-1d6a-40c3-8806-e10b9c035e8e</msg>
+<msg time="2025-11-11T20:05:31.828559" level="INFO">${id} = 2d1fc8a1-8957-4133-85ab-6754aa1bdd6e</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -588,16 +545,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.820919" elapsed="0.007640"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.493362" level="INFO">${TRADE_ID} = 7bd2b859-1d6a-40c3-8806-e10b9c035e8e</msg>
+<msg time="2025-11-11T20:05:31.828559" level="INFO">${TRADE_ID} = 2d1fc8a1-8957-4133-85ab-6754aa1bdd6e</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.828559" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.820919" elapsed="0.007640"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -605,13 +562,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.501601" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.828559" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.493362" elapsed="0.008239"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.828559" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.493362" elapsed="0.008239"/>
+<status status="PASS" start="2025-11-11T20:05:31.820919" elapsed="0.011150"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.485263" elapsed="0.016338"/>
+<status status="PASS" start="2025-11-11T20:05:31.811865" elapsed="0.020204"/>
 </kw>
 <kw name="Then trade history contains &quot;RETRY&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -619,95 +576,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.501601" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.832069" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.501601" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.832069" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.501601" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.832069" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.501601" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.832069" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.509638" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.837120" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.501601" elapsed="0.008037"/>
+<status status="PASS" start="2025-11-11T20:05:31.832069" elapsed="0.005051"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.509638" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.837120" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.509638" level="INFO">Trade 7bd2b859-1d6a-40c3-8806-e10b9c035e8e contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.837120" level="INFO">Trade 2d1fc8a1-8957-4133-85ab-6754aa1bdd6e contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.509638" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.837120" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.501601" elapsed="0.008037"/>
+<status status="PASS" start="2025-11-11T20:05:31.832069" elapsed="0.005051"/>
 </kw>
 <tag>system_failure</tag>
-<status status="PASS" start="2025-11-11T20:02:58.479460" elapsed="0.030178"/>
+<status status="PASS" start="2025-11-11T20:05:31.805834" elapsed="0.031286"/>
 </test>
-<test id="s1-t6" name="6) Partial fill execution" line="39">
+<test id="s1-t6" name="6) Partial fill execution" line="38">
 <kw name="Given trader &quot;T2&quot; has exposure for notional &quot;302400000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.517633" level="INFO">${notional_float} = 302400000.0</msg>
+<msg time="2025-11-11T20:05:31.844962" level="INFO">${notional_float} = 302400000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.509638" elapsed="0.007995"/>
+<status status="PASS" start="2025-11-11T20:05:31.844962" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.517633" level="INFO">${adjusted} = 40000000</msg>
+<msg time="2025-11-11T20:05:31.844962" level="INFO">${adjusted} = 40000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.517633" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.844962" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.525426" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.844962" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.517633" elapsed="0.007793"/>
+<status status="PASS" start="2025-11-11T20:05:31.844962" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.844962" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.509638" elapsed="0.015788"/>
+<status status="PASS" start="2025-11-11T20:05:31.837120" elapsed="0.007842"/>
 </kw>
 <kw name="When &quot;T2&quot; submits a &quot;BUY&quot; trade on &quot;GB0000000003&quot; qty &quot;3000000&quot; limit &quot;100.8&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.525426" level="INFO">${qty_int} = 3000000</msg>
+<msg time="2025-11-11T20:05:31.853022" level="INFO">${qty_int} = 3000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.525426" level="INFO">${price_float} = 100.8</msg>
+<msg time="2025-11-11T20:05:31.853022" level="INFO">${price_float} = 100.8</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.525426" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.853022" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.529209" level="INFO">${id} = 6ef54e7f-996e-4df9-92d5-52dbe2bfc23a</msg>
+<msg time="2025-11-11T20:05:31.861062" level="INFO">${id} = 1244045e-a32d-4881-9d25-3d8959056b20</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -716,16 +673,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.529209" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.008040"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.533450" level="INFO">${TRADE_ID} = 6ef54e7f-996e-4df9-92d5-52dbe2bfc23a</msg>
+<msg time="2025-11-11T20:05:31.862083" level="INFO">${TRADE_ID} = 1244045e-a32d-4881-9d25-3d8959056b20</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.008024"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.009061"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -733,13 +690,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.008024"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.009061"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.525426" elapsed="0.008024"/>
+<status status="PASS" start="2025-11-11T20:05:31.853022" elapsed="0.009061"/>
 </kw>
 <kw name="Then trade history contains &quot;PARTIALLY_FILLED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -747,95 +704,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.533450" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.862083" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.541958" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.868121" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.533450" elapsed="0.008508"/>
+<status status="PASS" start="2025-11-11T20:05:31.862083" elapsed="0.006038"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.541958" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.868121" elapsed="0.001010"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.541958" level="INFO">Trade 6ef54e7f-996e-4df9-92d5-52dbe2bfc23a contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.869131" level="INFO">Trade 1244045e-a32d-4881-9d25-3d8959056b20 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.541958" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.869131" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.533450" elapsed="0.008508"/>
+<status status="PASS" start="2025-11-11T20:05:31.862083" elapsed="0.007048"/>
 </kw>
 <tag>partial_fill</tag>
-<status status="PASS" start="2025-11-11T20:02:58.509638" elapsed="0.032320"/>
+<status status="PASS" start="2025-11-11T20:05:31.837120" elapsed="0.032011"/>
 </test>
-<test id="s1-t7" name="7) Trade cancelled before confirmation" line="45">
+<test id="s1-t7" name="7) Trade cancelled before confirmation" line="44">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;101000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.541958" level="INFO">${notional_float} = 101000000.0</msg>
+<msg time="2025-11-11T20:05:31.875205" level="INFO">${notional_float} = 101000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.541958" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.873179" elapsed="0.002026"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.550831" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.877228" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.550025" elapsed="0.000806"/>
+<status status="PASS" start="2025-11-11T20:05:31.875205" elapsed="0.002023"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.558133" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.879244" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.551482" elapsed="0.006651"/>
+<status status="PASS" start="2025-11-11T20:05:31.877228" elapsed="0.002016"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.879244" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.541958" elapsed="0.016175"/>
+<status status="PASS" start="2025-11-11T20:05:31.869131" elapsed="0.010113"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000001&quot; qty &quot;1000000&quot; limit &quot;101.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.558133" level="INFO">${qty_int} = 1000000</msg>
+<msg time="2025-11-11T20:05:31.883423" level="INFO">${qty_int} = 1000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.883423" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.558133" level="INFO">${price_float} = 101.0</msg>
+<msg time="2025-11-11T20:05:31.885440" level="INFO">${price_float} = 101.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.883423" elapsed="0.002017"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.558133" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.885744" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.885744" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.566484" level="INFO">${id} = 3fde07cf-3077-4cfd-8f11-f76ff51fd3ee</msg>
+<msg time="2025-11-11T20:05:31.891479" level="INFO">${id} = 1dfd1890-e607-4816-ab60-9d68b9bb4e7d</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -844,16 +801,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.008351"/>
+<status status="PASS" start="2025-11-11T20:05:31.885744" elapsed="0.005735"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.566484" level="INFO">${TRADE_ID} = 3fde07cf-3077-4cfd-8f11-f76ff51fd3ee</msg>
+<msg time="2025-11-11T20:05:31.891479" level="INFO">${TRADE_ID} = 1dfd1890-e607-4816-ab60-9d68b9bb4e7d</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.566484" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.891479" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.008351"/>
+<status status="PASS" start="2025-11-11T20:05:31.885744" elapsed="0.005735"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -861,13 +818,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.566484" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.891479" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.566484" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.891479" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.013198"/>
+<status status="PASS" start="2025-11-11T20:05:31.885744" elapsed="0.005735"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.558133" elapsed="0.013198"/>
+<status status="PASS" start="2025-11-11T20:05:31.883423" elapsed="0.010080"/>
 </kw>
 <kw name="Then trade history contains &quot;CANCELLED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -875,95 +832,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.571331" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.894236" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.571331" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.894236" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.571331" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.894236" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.571331" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.894236" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.574681" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.901598" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.571331" elapsed="0.003350"/>
+<status status="PASS" start="2025-11-11T20:05:31.894236" elapsed="0.007362"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.901598" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.574681" level="INFO">Trade 3fde07cf-3077-4cfd-8f11-f76ff51fd3ee contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.901598" level="INFO">Trade 1dfd1890-e607-4816-ab60-9d68b9bb4e7d contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.901598" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.571331" elapsed="0.003350"/>
+<status status="PASS" start="2025-11-11T20:05:31.894236" elapsed="0.007362"/>
 </kw>
 <tag>cancel_before_confirm</tag>
-<status status="PASS" start="2025-11-11T20:02:58.541958" elapsed="0.032723"/>
+<status status="PASS" start="2025-11-11T20:05:31.869131" elapsed="0.032467"/>
 </test>
-<test id="s1-t8" name="8a) Multiple concurrent traders - T1" line="51">
+<test id="s1-t8" name="8a) Multiple concurrent traders - T1" line="50">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;101000000&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.574681" level="INFO">${notional_float} = 101000000.0</msg>
+<msg time="2025-11-11T20:05:31.906742" level="INFO">${notional_float} = 101000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.906742" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.581755" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.909777" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.007074"/>
+<status status="PASS" start="2025-11-11T20:05:31.908765" elapsed="0.001012"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.589013" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.909777" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.581755" elapsed="0.007258"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.589013" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.014332"/>
+<status status="PASS" start="2025-11-11T20:05:31.906742" elapsed="0.003035"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000001&quot; qty &quot;1000000&quot; limit &quot;101.0&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.591616" level="INFO">${qty_int} = 1000000</msg>
+<msg time="2025-11-11T20:05:31.909777" level="INFO">${qty_int} = 1000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.591616" elapsed="0.002014"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.593630" level="INFO">${price_float} = 101.0</msg>
+<msg time="2025-11-11T20:05:31.909777" level="INFO">${price_float} = 101.0</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.593630" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.593630" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.909777" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.593630" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.597656" level="INFO">${id} = 79aeabbe-8a50-4786-a1f7-90f01e6e018e</msg>
+<msg time="2025-11-11T20:05:31.918329" level="INFO">${id} = 5b911630-a8ba-4adc-9732-ae9d97027d85</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -972,16 +929,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.593630" elapsed="0.004026"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.008552"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.599675" level="INFO">${TRADE_ID} = 79aeabbe-8a50-4786-a1f7-90f01e6e018e</msg>
+<msg time="2025-11-11T20:05:31.921644" level="INFO">${TRADE_ID} = 5b911630-a8ba-4adc-9732-ae9d97027d85</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.599675" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.593630" elapsed="0.006045"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.011867"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -989,13 +946,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.599675" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.599675" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.593630" elapsed="0.006045"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.011867"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.591616" elapsed="0.008059"/>
+<status status="PASS" start="2025-11-11T20:05:31.909777" elapsed="0.011867"/>
 </kw>
 <kw name="Then trade history contains &quot;CREATED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -1003,95 +960,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.604413" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.604413" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.599675" elapsed="0.004738"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.599675" elapsed="0.004738"/>
+<status status="PASS" start="2025-11-11T20:05:31.921644" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.607774" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.930090" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.604413" elapsed="0.003361"/>
+<status status="PASS" start="2025-11-11T20:05:31.921644" elapsed="0.008446"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.607774" level="INFO">Trade 79aeabbe-8a50-4786-a1f7-90f01e6e018e contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.930090" level="INFO">Trade 5b911630-a8ba-4adc-9732-ae9d97027d85 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.599675" elapsed="0.008099"/>
+<status status="PASS" start="2025-11-11T20:05:31.921644" elapsed="0.008446"/>
 </kw>
 <tag>concurrency</tag>
-<status status="PASS" start="2025-11-11T20:02:58.574681" elapsed="0.033093"/>
+<status status="PASS" start="2025-11-11T20:05:31.901598" elapsed="0.028492"/>
 </test>
-<test id="s1-t9" name="8b) Multiple concurrent traders - T2" line="57">
+<test id="s1-t9" name="8b) Multiple concurrent traders - T2" line="56">
 <kw name="Given trader &quot;T2&quot; has exposure for notional &quot;199200000&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.607774" level="INFO">${notional_float} = 199200000.0</msg>
+<msg time="2025-11-11T20:05:31.930090" level="INFO">${notional_float} = 199200000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.607774" level="INFO">${adjusted} = 40000000</msg>
+<msg time="2025-11-11T20:05:31.930090" level="INFO">${adjusted} = 40000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.615883" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.938486" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.613853" elapsed="0.002030"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.008396"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.615883" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.938486" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.008109"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.008396"/>
 </kw>
 <kw name="When &quot;T2&quot; submits a &quot;SELL&quot; trade on &quot;US0000000002&quot; qty &quot;2000000&quot; limit &quot;99.6&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.624118" level="INFO">${qty_int} = 2000000</msg>
+<msg time="2025-11-11T20:05:31.938486" level="INFO">${qty_int} = 2000000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.938486" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.624118" level="INFO">${price_float} = 99.6</msg>
+<msg time="2025-11-11T20:05:31.946520" level="INFO">${price_float} = 99.6</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.938486" elapsed="0.008034"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.624118" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.946520" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.627840" level="INFO">${id} = f201d3d1-e321-4983-a2b1-b65a5ac4f592</msg>
+<msg time="2025-11-11T20:05:31.946520" level="INFO">${id} = 29ed67df-0d06-4c3b-a3a4-94e9be4fa9a1</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -1100,16 +1057,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.003722"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.632218" level="INFO">${TRADE_ID} = f201d3d1-e321-4983-a2b1-b65a5ac4f592</msg>
+<msg time="2025-11-11T20:05:31.946520" level="INFO">${TRADE_ID} = 29ed67df-0d06-4c3b-a3a4-94e9be4fa9a1</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.008100"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -1117,13 +1074,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.008100"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.624118" elapsed="0.008100"/>
+<status status="PASS" start="2025-11-11T20:05:31.938486" elapsed="0.008034"/>
 </kw>
 <kw name="Then trade history contains &quot;CREATED&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -1131,95 +1088,95 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.632218" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.640468" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.956814" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.632218" elapsed="0.008250"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.010294"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.958882" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.640468" level="INFO">Trade f201d3d1-e321-4983-a2b1-b65a5ac4f592 contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.958882" level="INFO">Trade 29ed67df-0d06-4c3b-a3a4-94e9be4fa9a1 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.958882" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.632218" elapsed="0.008250"/>
+<status status="PASS" start="2025-11-11T20:05:31.946520" elapsed="0.012362"/>
 </kw>
 <tag>concurrency</tag>
-<status status="PASS" start="2025-11-11T20:02:58.607774" elapsed="0.032694"/>
+<status status="PASS" start="2025-11-11T20:05:31.930090" elapsed="0.030819"/>
 </test>
-<test id="s1-t10" name="9) Rapid market update" line="63">
+<test id="s1-t10" name="9) Rapid market update" line="62">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;79920000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.640468" level="INFO">${notional_float} = 79920000.0</msg>
+<msg time="2025-11-11T20:05:31.963709" level="INFO">${notional_float} = 79920000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.963709" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.640468" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.963709" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.005647"/>
+<status status="PASS" start="2025-11-11T20:05:31.963709" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.648808" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.967738" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.646115" elapsed="0.002693"/>
+<status status="PASS" start="2025-11-11T20:05:31.963709" elapsed="0.004029"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.648808" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.969753" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.008340"/>
+<status status="PASS" start="2025-11-11T20:05:31.962924" elapsed="0.006829"/>
 </kw>
 <kw name="When &quot;T1&quot; submits a &quot;BUY&quot; trade on &quot;US0000000002&quot; qty &quot;800000&quot; limit &quot;99.9&quot;" owner="trading_bdd" source_name="&quot;${trader}&quot; submits a &quot;${side}&quot; trade on &quot;${isin}&quot; qty &quot;${qty}&quot; limit &quot;${price}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.648808" level="INFO">${qty_int} = 800000</msg>
+<msg time="2025-11-11T20:05:31.971265" level="INFO">${qty_int} = 800000</msg>
 <var>${qty_int}</var>
 <arg>int("${qty}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.648808" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.969753" elapsed="0.001512"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.648808" level="INFO">${price_float} = 99.9</msg>
+<msg time="2025-11-11T20:05:31.971586" level="INFO">${price_float} = 99.9</msg>
 <var>${price_float}</var>
 <arg>float("${price}")</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.648808" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.654970" level="INFO">${adjusted_qty} = 100000</msg>
+<msg time="2025-11-11T20:05:31.971586" level="INFO">${adjusted_qty} = 100000</msg>
 <var>${adjusted_qty}</var>
 <arg>min(${qty_int}, 100000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.648808" elapsed="0.006162"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.000000"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Retry Execution With Backoff" owner="Trading">
-<msg time="2025-11-11T20:02:58.658321" level="INFO">${id} = 3eb1eb1c-3c71-4900-b316-3bb4189519eb</msg>
+<msg time="2025-11-11T20:05:31.971586" level="INFO">${id} = e779cccc-9dd1-408e-be23-95156326e1b0</msg>
 <var>${id}</var>
 <arg>${isin}</arg>
 <arg>${trader}</arg>
@@ -1228,16 +1185,16 @@
 <arg>${price_float}</arg>
 <arg>${MAX_RETRIES}</arg>
 <arg>${TOLERANCE}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.654970" elapsed="0.003351"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.000000"/>
 </kw>
 <kw name="Set Test Variable" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.661515" level="INFO">${TRADE_ID} = 3eb1eb1c-3c71-4900-b316-3bb4189519eb</msg>
+<msg time="2025-11-11T20:05:31.971586" level="INFO">${TRADE_ID} = e779cccc-9dd1-408e-be23-95156326e1b0</msg>
 <arg>${TRADE_ID}</arg>
 <arg>${id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.658321" elapsed="0.003194"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.654970" elapsed="0.006545"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.000000"/>
 </branch>
 <branch type="EXCEPT">
 <pattern>*Invalid ISIN*</pattern>
@@ -1245,13 +1202,13 @@
 <arg>${TRADE_ID}</arg>
 <arg>INVALID</arg>
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.971586" elapsed="0.007833"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.654970" elapsed="0.006545"/>
+<status status="PASS" start="2025-11-11T20:05:31.971586" elapsed="0.007833"/>
 </try>
-<status status="PASS" start="2025-11-11T20:02:58.648808" elapsed="0.012707"/>
+<status status="PASS" start="2025-11-11T20:05:31.969753" elapsed="0.009666"/>
 </kw>
 <kw name="Then trade history contains &quot;PENDING_CONFIRMATION&quot;" owner="trading_bdd" source_name="trade history contains &quot;${csv}&quot;">
 <if>
@@ -1259,77 +1216,77 @@
 <kw name="Log" owner="BuiltIn">
 <arg>Trade was rejected due to invalid ISIN</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
 <return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </return>
-<status status="NOT RUN" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-11-11T20:02:58.661515" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </if>
 <kw name="Assert Trade State History" owner="Trading">
-<msg time="2025-11-11T20:02:58.667909" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.979419" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${TRADE_ID}</arg>
 <arg>CREATED</arg>
-<status status="PASS" start="2025-11-11T20:02:58.661515" elapsed="0.006394"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.667909" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.670599" level="INFO">Trade 3eb1eb1c-3c71-4900-b316-3bb4189519eb contains state: CREATED</msg>
+<msg time="2025-11-11T20:05:31.979419" level="INFO">Trade e779cccc-9dd1-408e-be23-95156326e1b0 contains state: CREATED</msg>
 <arg>Trade ${TRADE_ID} contains state: CREATED</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.670599" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.661515" elapsed="0.009084"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.000000"/>
 </kw>
 <tag>rapid_market</tag>
-<status status="PASS" start="2025-11-11T20:02:58.640468" elapsed="0.030131"/>
+<status status="PASS" start="2025-11-11T20:05:31.960909" elapsed="0.018510"/>
 </test>
-<test id="s1-t11" name="10) Risk breach attempt" line="69">
+<test id="s1-t11" name="10) Risk breach attempt" line="68">
 <kw name="Given trader &quot;T1&quot; has exposure for notional &quot;50000000.0&quot;" owner="trading_bdd" source_name="trader &quot;${trader}&quot; has exposure for notional &quot;${notional}&quot;">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.672612" level="INFO">${notional_float} = 50000000.0</msg>
+<msg time="2025-11-11T20:05:31.987900" level="INFO">${notional_float} = 50000000.0</msg>
 <var>${notional_float}</var>
 <arg>float("${notional}".replace(",",""))</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.672612" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.008481"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-11T20:02:58.672612" level="INFO">${adjusted} = 20000000</msg>
+<msg time="2025-11-11T20:05:31.987900" level="INFO">${adjusted} = 20000000</msg>
 <var>${adjusted}</var>
 <arg>min(${notional_float}, 20000000 if "${trader}" == "T1" else 40000000)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.672612" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.987900" elapsed="0.000000"/>
 </kw>
 <kw name="Validate Trader Exposure" owner="Trading">
-<msg time="2025-11-11T20:02:58.676440" level="INFO">${ok} = True</msg>
+<msg time="2025-11-11T20:05:31.990725" level="INFO">${ok} = True</msg>
 <var>${ok}</var>
 <arg>${trader}</arg>
 <arg>${adjusted}</arg>
-<status status="PASS" start="2025-11-11T20:02:58.676440" elapsed="0.000000"/>
+<status status="PASS" start="2025-11-11T20:05:31.987900" elapsed="0.002825"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${ok}</arg>
 <arg>Exposure/credit breached for ${trader}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-11-11T20:02:58.680856" elapsed="0.000373"/>
+<status status="PASS" start="2025-11-11T20:05:31.990725" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-11-11T20:02:58.672612" elapsed="0.008617"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.011306"/>
 </kw>
 <tag>risk_breach</tag>
-<status status="PASS" start="2025-11-11T20:02:58.672612" elapsed="0.008617"/>
+<status status="PASS" start="2025-11-11T20:05:31.979419" elapsed="0.011306"/>
 </test>
-<status status="FAIL" start="2025-11-11T20:02:58.017716" elapsed="0.666266"/>
+<status status="PASS" start="2025-11-11T20:05:31.451536" elapsed="0.544849"/>
 </suite>
 <statistics>
 <total>
-<stat pass="10" fail="1" skip="0">All Tests</stat>
+<stat pass="11" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="1" fail="0" skip="0">cancel_before_confirm</stat>
@@ -1341,10 +1298,10 @@
 <stat pass="1" fail="0" skip="0">rapid_market</stat>
 <stat pass="1" fail="0" skip="0">risk_breach</stat>
 <stat pass="1" fail="0" skip="0">system_failure</stat>
-<stat pass="0" fail="1" skip="0">valid</stat>
+<stat pass="1" fail="0" skip="0">valid</stat>
 </tag>
 <suite>
-<stat name="Run Feature Tests" id="s1" pass="10" fail="1" skip="0">Run Feature Tests</stat>
+<stat name="Run Feature Tests" id="s1" pass="11" fail="0" skip="0">Run Feature Tests</stat>
 </suite>
 </statistics>
 <errors>

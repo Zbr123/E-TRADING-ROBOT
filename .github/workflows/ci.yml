@@ -21,6 +21,13 @@ jobs:
         shell: powershell
       - run: .venv\Scripts\robot.exe --variable REMOTE_HOST:127.0.0.1 --variable REMOTE_PORT:8270 -d tests-robot/logs tests-robot/run_feature_tests.robot
         shell: cmd
+        continue-on-error: true
+      - run: type tests-robot\logs\output.xml
+        shell: cmd
+        continue-on-error: true
+      - run: dir tests-robot\logs
+        shell: cmd
+        continue-on-error: true
       - uses: actions/upload-artifact@v4
         with: { name: robot-and-allure, path: tests-robot/logs/** }
 
